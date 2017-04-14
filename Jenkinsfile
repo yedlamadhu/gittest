@@ -14,4 +14,5 @@ node {
     unstash 'root'
     def hello = readFile('world.txt')
     echo hello
+}
 
