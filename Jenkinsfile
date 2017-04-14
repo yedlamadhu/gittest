@@ -16,3 +16,9 @@ node {
     echo hello
 }
 
+node {
+    stage 'Hello'
+  //  unstash 'root'
+  // def hello = readFile('abc.txt')
+    echo 'hello world'
+}
