@@ -1,24 +1,13 @@
-node {
-   // Mark the code checkout 'stage'....
-   stage 'Checkout'
-
-   // Get some code from a GitHub repository
-   checkout scm
-
-   stash includes: '*', name: 'root'
-
-}
-
-node {
-    stage 'Hello'
-    unstash 'root'
-    def hello = readFile('abc.txt')
-    echo hello
-}
-
-node {
-    stage 'Hello'
-  //  unstash 'root'
-  // def hello = readFile('abc.txt')
-    echo 'hello world'
+pipeline {
+    agent any
+    tools {
+        maven 'apache-maven-3.0.1' 
+    }
+    stages {
+        stage('Example') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
+    }
 }
